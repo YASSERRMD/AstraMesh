@@ -172,8 +172,8 @@ services:
   # Gateway API Service
   gateway-api:
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: integration-platform-gateway-api
     ports:
       - "8080:8080"
@@ -205,8 +205,8 @@ services:
   # Flow Runtime Service
   flow-runtime:
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: integration-platform-flow-runtime
     environment:
       - SERVICE_TYPE=flow-runtime
@@ -236,8 +236,8 @@ services:
   # GenAI Orchestrator Service
   genai-orchestrator:
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: integration-platform-genai-orchestrator
     environment:
       - SERVICE_TYPE=genai-orchestrator
@@ -270,8 +270,8 @@ services:
   # RAG Service
   rag-service:
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: integration-platform-rag-service
     environment:
       - SERVICE_TYPE=rag-service
@@ -301,8 +301,8 @@ services:
   # Connector Runtime Service
   connector-runtime:
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: integration-platform-connector-runtime
     environment:
       - SERVICE_TYPE=connector-runtime
