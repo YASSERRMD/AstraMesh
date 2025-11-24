@@ -9,7 +9,7 @@ RUN apk add --no-cache git gcc musl-dev
 WORKDIR /app
 
 # Copy go mod files
-COPY backend/go.mod backend/go.sum ./
+COPY go.mod go.sum ./
 
 # Download dependencies
 RUN go mod download
