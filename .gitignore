@@ -1,0 +1,78 @@
+```
+# Dependencies
+node_modules/
+node_modules/
+**/node_modules/
+
+# Go build artifacts
+*.exe
+*.dll
+*.so
+*.a
+*.obj
+*.out
+backend/bin/
+backend/dist/
+backend/build/
+
+# Go cache
+go.sum
+go.mod.bak
+*.mod
+*.sum
+
+# Frontend build artifacts
+frontend/dist/
+frontend/build/
+frontend/svelte-app/dist/
+frontend/svelte-app/build/
+
+# TypeScript/JavaScript
+*.tsbuildinfo
+*.js.map
+*.ts.map
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.temp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Python (if any Python files exist in the project)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.tox/
+.coverage
+.nyc_output/
+```
