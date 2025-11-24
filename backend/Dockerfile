@@ -15,7 +15,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Copy source code
-COPY backend/ .
+COPY . .
 
 # Build the application
 RUN CGO_ENABLED=1 GOOS=linux go build -a -installsuffix cgo -o main .
