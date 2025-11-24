@@ -118,3 +118,35 @@ The platform is designed to scale horizontally:
 # Scale flow runtime to handle more concurrent flows
 docker-compose up -d --scale flow-runtime=5
 ```
+
+### Development
+
+For development with hot-reloading, use the development compose file:
+
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+```
+
+### Production Deployment
+
+For production deployment with Nginx reverse proxy:
+
+```bash
+# Set up SSL certificates in docker/ssl/ directory first
+docker-compose -f docker-compose.yml up -d
+```
+
+### Health Checks
+
+All services include health checks and will automatically restart on failure. Monitor service health through:
+
+- Grafana dashboard
+- Docker logs: `docker-compose logs -f <service-name>`
+- Prometheus metrics endpoint
+
+### Troubleshooting
+
+- Check service logs: `docker-compose logs <service-name>`
+- Verify environment variables are set correctly
+- Ensure sufficient system resources are available
+- Check network connectivity between services
