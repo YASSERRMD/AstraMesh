@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  # Gateway API Service - Development
+  gateway-api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    volumes:
+      - ./backend:/app
+      - /app/go/pkg/mod # Go modules cache
+    environment:
+      - LOG_LEVEL=debug
+      - DEV_MODE=true
+    command: ["go", "run", "main.go"]
+
+  # Flow Runtime Service - Development
+  flow-runtime:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    volumes:
+      - ./backend:/app
+      - /app/go/pkg/mod
+    environment:
+      - SERVICE_TYPE=flow-runtime
+      - LOG_LEVEL=debug
+      - DEV_MODE=true
+    command: ["go", "run", "main.go"]
+
+  # GenAI Orchestrator Service - Development
+  genai-orchestrator:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    volumes:
+      - ./backend:/app
+      - /app/go/pkg/mod
+    environment:
+      - SERVICE_TYPE=genai-orchestrator
+      - LOG_LEVEL=debug
+      - DEV_MODE=true
+    command: ["go", "run", "main.go"]
+
+  # RAG Service - Development
+  rag-service:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    volumes:
+      - ./backend:/app
+      - /app/go/pkg/mod
+    environment:
+      - SERVICE_TYPE=rag-service
+      - LOG_LEVEL=debug
+      - DEV_MODE=true
+    command: ["go", "run", "main.go"]
+
+  # Connector Runtime Service - Development
+  connector-runtime:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    volumes:
+      - ./backend:/app
+      - /app/go/pkg/mod
+    environment:
+      - SERVICE_TYPE=connector-runtime
+      - LOG_LEVEL=debug
+      - DEV_MODE=true
+    command: ["go", "run", "main.go"]
+
+  # SvelteKit Frontend - Development
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8080
+      - VITE_WS_URL=ws://localhost:8080
+      - DEV_MODE=true
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

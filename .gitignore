@@ -1,4 +1,16 @@
 ```
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
 # Dependencies
 node_modules/
 venv/
@@ -6,31 +18,30 @@ venv/
 __pycache__/
 .mypy_cache/
 .pytest_cache/
+.julia/
+.zig/
+
+# Build artifacts
 dist/
 build/
 target/
-.gradle/
+*.pyc
+*.class
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
 
-# Docker
-.dockerenv
-Dockerfile
-docker-compose*.yml
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
+# Editor/IDE files
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# OS
+# System files
 .DS_Store
 Thumbs.db
 
