@@ -1,6 +1,6 @@
 module platform-backend
 
-go 1.22
+go 1.19
 
 require (
     github.com/gofiber/fiber/v2 v2.52.4
@@ -46,7 +46,7 @@ require (
     google.golang.org/grpc v1.59.0
     google.golang.org/protobuf v1.31.0
     github.com/golang/protobuf v1.5.3
-    github.com/Shopify/sarama v1.41.1
+    github.com/IBM/sarama v1.41.1
 )
 
 require (
