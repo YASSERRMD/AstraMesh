@@ -21,8 +21,8 @@ RUN go mod download
 # Copy source code
 COPY ${SRC_DIR}/ ./
 
-# Build the application
-RUN CGO_ENABLED=1 GOOS=linux go build -a -installsuffix cgo -o main .
+# Build the application (main.go is in gateway subdirectory)
+RUN CGO_ENABLED=1 GOOS=linux go build -a -installsuffix cgo -o main ./gateway
 
 # Final stage
 FROM alpine:latest
