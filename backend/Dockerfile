@@ -8,14 +8,18 @@ RUN apk add --no-cache git gcc musl-dev
 
 WORKDIR /app
 
-# Copy go mod files from backend directory
-COPY backend/go.mod backend/go.sum ./
+# Allow building from either the repository root (SRC_DIR=backend) or the
+# backend directory itself (default).
+ARG SRC_DIR=.
+
+# Copy go mod files
+COPY ${SRC_DIR}/go.mod ${SRC_DIR}/go.sum ./
 
 # Download dependencies
 RUN go mod download
 
-# Copy source code from backend directory
-COPY backend/ .
+# Copy source code
+COPY ${SRC_DIR}/ ./
 
 # Build the application (main.go is in gateway subdirectory)
 RUN CGO_ENABLED=1 GOOS=linux go build -a -installsuffix cgo -o main ./gateway
